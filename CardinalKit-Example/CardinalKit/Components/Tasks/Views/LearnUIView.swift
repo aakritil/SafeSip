@@ -19,9 +19,11 @@ struct LearnUIView: View {
                 .accessibilityLabel(Text("Logo"))
             
             Text("""
-                CardinalKit is a suite of tools designed to help you build a digital health app \
-                experience from the ground up. It integrates with Firebase to provide full-stack solutions. \
-                We hope you enjoy the love poured into this sample and make many great things with it!
+                
+                SafeSip is an innovative mobile application designed to enhance personal safety and well-being by leveraging advanced accelerometer and digital health sensor technologies to monitor users' intoxication levels.
+                
+                Whether you're out with friends or enjoying a solo evening, SafeSip acts as your vigilant companion, ensuring your night out remains within the bounds of safety and enjoyment.
+
                 """)
                 .multilineTextAlignment(.leading)
                 .font(.system(size: 18, weight: .regular, design: .default))

@@ -76,7 +76,7 @@ enum LocalTaskItem: Int {
     var image: UIImage? {
         switch self {
         case .alchoholHotlines:
-            return getImage(named: "DataIcon")
+            return getImage(named: "HotlineIcon")
         case .sampleFHIRSurvey:
             return getImage(named: "SurveyIcon")
         case .sampleFunCoffeeSurvey:
