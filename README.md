@@ -2,6 +2,14 @@
 
 Excessive alcohol consumption can have severe health consequences. SafeSip uses machine learning to warn users when their consumption has reached unsafe levels, with no need for user input. 
 
+![landing_pages](https://github.com/aakritil/treehacks/assets/63487762/f23c82db-b458-42cc-bde5-f556f5964147)
+
+![Main_page](https://github.com/aakritil/treehacks/assets/63487762/5124b4cd-dc71-4f23-ab91-13d03d87a7cb)
+
+![Schedule_page](https://github.com/aakritil/treehacks/assets/63487762/e4d859fa-d9a2-4663-a26b-a978ddd32fa8)
+
+
+
 ## Inspiration
 
 As college students, we are witness to a lot of drinking. While fine in moderation, excessive alcohol consumption has serious consequences. We want to help our peers strike a good balance between fun and safety. That’s why we’ve created SafeSip, a low-commitment, easy-to-use tool to ensure safe drinking. 
