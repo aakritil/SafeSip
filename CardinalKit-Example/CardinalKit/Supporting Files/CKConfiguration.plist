@@ -5,15 +5,15 @@
 	<key>AppId</key>
 	<string>415789243347763</string>
 	<key>Study Title</key>
-	<string>CardinalKit</string>
+	<string>SafeSip</string>
 	<key>Team Name</key>
-	<string>Stanford Byers Center for Biodesign</string>
+	<string>Treehacks &lt;3</string>
 	<key>Email</key>
-	<string>contact@domain.com</string>
+	<string>aakritil@stanford.edu</string>
 	<key>Phone</key>
-	<string>123-456-7890</string>
+	<string>704-293-0705</string>
 	<key>Copyright</key>
-	<string>Made at Stanford with ❤️</string>
+	<string></string>
 	<key>Website</key>
 	<string>https://cardinalkit.org</string>
 	<key>Tint Color</key>
@@ -35,15 +35,13 @@
 	<key>Completion Step Text</key>
 	<string>This step concludes the onboarding and consent process of the CardinalKit framework. Next up, you will see main app functionality.</string>
 	<key>Health Permissions Title</key>
-	<string>Permission to read Activity Data 🏃🏽‍♀️</string>
+	<string>Permission to read Accelerometer Data</string>
 	<key>Health Permissions Text</key>
-	<string>Use this text to provide an explanation to your app participants about what activity data you intend to read from the Health app and why. This sample will read step count, distance, heart rate, and flights climbed data.</string>
+	<string>We use this data to predict negative health outcomes related to alcohol.</string>
 	<key>Health Records</key>
 	<dict>
 		<key>Enabled</key>
 		<false/>
-		<key>Permissions Text</key>
-		<string>Use this text to provide an explanation to your app participants about what electronic health records (EHR) you intend to collect from the Health app and why. This sample will read all available records (for which permission is granted).</string>
 		<key>Permissions Title</key>
 		<string>Permission to read Health Records 🏥</string>
 	</dict>
@@ -52,7 +50,7 @@
 	<key>Sign In With Google</key>
 	<true/>
 	<key>Sign In With Email</key>
-	<true/>
+	<false/>
 	<key>Withdrawal Instruction Title</key>
 	<string>Are you sure you want to withdraw?</string>
 	<key>Withdrawal Instruction Text</key>
@@ -171,30 +169,6 @@
 	</array>
 	<key>Contacts</key>
 	<array>
-		<dict>
-			<key>givenName</key>
-			<string>Oliver</string>
-			<key>familyName</key>
-			<string>Aalami</string>
-			<key>title</key>
-			<string>Vascular Surgeon</string>
-			<key>role</key>
-			<string>Dr. Aalami is the director of the CardinalKit project.</string>
-			<key>email</key>
-			<string>aalami@stanford.edu</string>
-			<key>phone</key>
-			<string>111-111-1111</string>
-			<key>text</key>
-			<string>111-111-1111</string>
-			<key>street</key>
-			<string>318 Campus Drive</string>
-			<key>city</key>
-			<string>Stanford</string>
-			<key>state</key>
-			<string>CA</string>
-			<key>postalCode</key>
-			<string>94305</string>
-		</dict>
 		<dict>
 			<key>givenName</key>
 			<string>Johnny</string>

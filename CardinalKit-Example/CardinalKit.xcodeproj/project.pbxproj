@@ -10,7 +10,6 @@
 		270CDC0A28A65A0100F2F053 /* CKFHIRTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDC0928A65A0100F2F053 /* CKFHIRTaskViewController.swift */; };
 		270CDC0C28A65AD300F2F053 /* CKUploadFHIRTaskViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDC0B28A65AD300F2F053 /* CKUploadFHIRTaskViewControllerDelegate.swift */; };
 		275A6AC5296A684800DA4943 /* OnboardingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275A6AC4296A684800DA4943 /* OnboardingPageView.swift */; };
-		276399A129021BB5004DE158 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 276399A029021BB4004DE158 /* GoogleService-Info.plist */; };
 		27653A13272A2E7700D74E83 /* LocalTaskListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27653A12272A2E7700D74E83 /* LocalTaskListItemView.swift */; };
 		27663F2A29574F1500A34080 /* CardinalKit_ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27663F2929574F1500A34080 /* CardinalKit_ExampleTests.swift */; };
 		2777DADD2969F76300F2ECD4 /* CKSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2777DADC2969F76300F2ECD4 /* CKSignInView.swift */; };
@@ -34,6 +33,10 @@
 		2FFFA2CD29024EFD009D289D /* Questionnaire+ValueSets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFFA2C529024EFD009D289D /* Questionnaire+ValueSets.swift */; };
 		2FFFA2CE29024EFD009D289D /* FHIRExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFFA2C729024EFD009D289D /* FHIRExtensions.swift */; };
 		2FFFA2D229025241009D289D /* ORKESerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A4386244A4A0400656518 /* ORKESerialization.m */; };
+		5822BF4E2B81738A00F94625 /* HotlineUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5822BF4D2B81738A00F94625 /* HotlineUIView.swift */; };
+		5822BF4F2B81755200F94625 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5822BF4C2B8172F800F94625 /* GoogleService-Info.plist */; };
+		5822BF502B81755300F94625 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5822BF4C2B8172F800F94625 /* GoogleService-Info.plist */; };
+		5822BF522B817BBB00F94625 /* DataCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5822BF512B817BBB00F94625 /* DataCollectionView.swift */; };
 		6333443D2AAE1E56006DC7A7 /* ResearchKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6333443C2AAE1E56006DC7A7 /* ResearchKit */; };
 		6372202D2AAE390C00367157 /* CKSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6372202C2AAE390C00367157 /* CKSessionTests.swift */; };
 		8E0A43AC244A4A0400656518 /* CKStudyUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A4382244A4A0400656518 /* CKStudyUser.swift */; };
@@ -130,7 +133,6 @@
 		270CDC0928A65A0100F2F053 /* CKFHIRTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKFHIRTaskViewController.swift; sourceTree = "<group>"; };
 		270CDC0B28A65AD300F2F053 /* CKUploadFHIRTaskViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKUploadFHIRTaskViewControllerDelegate.swift; sourceTree = "<group>"; };
 		275A6AC4296A684800DA4943 /* OnboardingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageView.swift; sourceTree = "<group>"; };
-		276399A029021BB4004DE158 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		27653A12272A2E7700D74E83 /* LocalTaskListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTaskListItemView.swift; sourceTree = "<group>"; };
 		27663F2729574F1500A34080 /* CardinalKit ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CardinalKit ExampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		27663F2929574F1500A34080 /* CardinalKit_ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardinalKit_ExampleTests.swift; sourceTree = "<group>"; };
@@ -155,6 +157,9 @@
 		2FFFA2C529024EFD009D289D /* Questionnaire+ValueSets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Questionnaire+ValueSets.swift"; sourceTree = "<group>"; };
 		2FFFA2C729024EFD009D289D /* FHIRExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FHIRExtensions.swift; sourceTree = "<group>"; };
 		41DC264876E45FE5A3FD8701 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		5822BF4C2B8172F800F94625 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5822BF4D2B81738A00F94625 /* HotlineUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotlineUIView.swift; sourceTree = "<group>"; };
+		5822BF512B817BBB00F94625 /* DataCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCollectionView.swift; sourceTree = "<group>"; };
 		5B3D62399A6AD2DDCE5BC6B8 /* Pods-CardinalKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CardinalKit_Example.debug.xcconfig"; path = "Target Support Files/Pods-CardinalKit_Example/Pods-CardinalKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* CardinalKit Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CardinalKit Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		62AA5CD1C2188D392530510F /* CardinalKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CardinalKit.podspec; path = ../CardinalKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -377,13 +382,13 @@
 		8E0A4383244A4A0400656518 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5822BF4C2B8172F800F94625 /* GoogleService-Info.plist */,
 				8E0A4388244A4A0400656518 /* Assets.xcassets */,
 				8E0A4389244A4A0400656518 /* LaunchScreen.storyboard */,
 				8E0A4384244A4A0400656518 /* Constants.swift */,
 				8E0A4378244A4A0300656518 /* CardinalKit_Example-Bridging-Header.h */,
-				276399A029021BB4004DE158 /* GoogleService-Info.plist */,
-				8E0A43C9244A4C6500656518 /* Info.plist */,
 				E2F1FD7724D62064006C39DF /* CKConfiguration.plist */,
+				8E0A43C9244A4C6500656518 /* Info.plist */,
 				27A9F0372AC9F0400084D2B8 /* FeatureFlags.swift */,
 			);
 			path = "Supporting Files";
@@ -453,6 +458,8 @@
 				8E7FFFBA25DE37FF002982B4 /* CoffeePieChartView.swift */,
 				27653A12272A2E7700D74E83 /* LocalTaskListItemView.swift */,
 				8E6E1E27253538CC0024B8DF /* CloudTaskListItemView.swift */,
+				5822BF4D2B81738A00F94625 /* HotlineUIView.swift */,
+				5822BF512B817BBB00F94625 /* DataCollectionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -680,6 +687,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5822BF502B81755300F94625 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -688,8 +696,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E0A43AF244A4A0400656518 /* Assets.xcassets in Resources */,
+				5822BF4F2B81755200F94625 /* GoogleService-Info.plist in Resources */,
 				8E0A43B0244A4A0400656518 /* LaunchScreen.storyboard in Resources */,
-				276399A129021BB5004DE158 /* GoogleService-Info.plist in Resources */,
 				E2F1FD7824D62064006C39DF /* CKConfiguration.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -866,6 +874,7 @@
 				8EA664B025941A4D00B6A45A /* SurveyItemViewController.swift in Sources */,
 				27797418296289F2006D6DE5 /* CKInstructionSteps.swift in Sources */,
 				8E9CDEBA2591843200C8A228 /* CKConfig.swift in Sources */,
+				5822BF522B817BBB00F94625 /* DataCollectionView.swift in Sources */,
 				2F94C5F22536543600DF8866 /* SceneDelegate+CardinalKit.swift in Sources */,
 				8E9CDFAE2592B79900C8A228 /* Metrics.swift in Sources */,
 				27653A13272A2E7700D74E83 /* LocalTaskListItemView.swift in Sources */,
@@ -887,6 +896,7 @@
 				8E6E1E24253537580024B8DF /* MainUIView.swift in Sources */,
 				8E6E1E182535263F0024B8DF /* CKTaskViewController.swift in Sources */,
 				8E9CDF142591B73900C8A228 /* CKHealthRecordsManager.swift in Sources */,
+				5822BF4E2B81738A00F94625 /* HotlineUIView.swift in Sources */,
 				8EA664B42594387900B6A45A /* Errors.swift in Sources */,
 				275A6AC5296A684800DA4943 /* OnboardingPageView.swift in Sources */,
 				8E6E1E1225351F830024B8DF /* DocumentPreviewViewController.swift in Sources */,
@@ -1133,7 +1143,7 @@
 				);
 				MARKETING_VERSION = 2.2.0;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = ahjfhomvdtujn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.safesip;
 				PRODUCT_NAME = "CardinalKit Example";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "CardinalKit/Supporting Files/CardinalKit_Example-Bridging-Header.h";

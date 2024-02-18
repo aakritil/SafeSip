@@ -25,9 +25,10 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.949411969311-25li9prr4lnl9njusscqv5rq586j3un4</string>
+				<string>com.googleusercontent.apps.281223930916-s9ttij3nlc18ce546aquaht9drfi96tu</string>
 			</array>
 		</dict>
+		<dict/>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>6</string>
@@ -103,6 +104,7 @@
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
+		<string>accelerometer</string>
 		<string>armv7</string>
 	</array>
 	<key>UIStatusBarStyle</key>

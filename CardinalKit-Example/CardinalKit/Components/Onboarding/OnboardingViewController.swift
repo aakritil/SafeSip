@@ -19,8 +19,10 @@ struct OnboardingViewController: UIViewControllerRepresentable {
 
     typealias UIViewControllerType = ORKTaskViewController
     
+    
     func updateUIViewController(_ taskViewController: ORKTaskViewController, context: Context) {}
-
+    
+    
     // swiftlint:disable function_body_length
     func makeUIViewController(context: Context) -> ORKTaskViewController {
         let config = CKPropertyReader(file: "CKConfiguration")
@@ -132,6 +134,8 @@ struct OnboardingViewController: UIViewControllerRepresentable {
         /// Create a navigation rule for the sign in screen that will show
         /// the email/password sign up workflow if the user chose it,
         /// otherwise skips forward to the passcode entry screen.
+        ///
+        
         let resultSelector = ORKResultSelector(resultIdentifier: "SignInButtons")
         let booleanAnswerType = ORKResultPredicate.predicateForBooleanQuestionResult(
             with: resultSelector,

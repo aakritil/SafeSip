@@ -7,6 +7,14 @@
 //
 import ResearchKit
 import SwiftUI
+import CardinalKit
+import CareKit
+import CareKitFHIR
+import CareKitStore
+import HealthKit
+import UIKit
+
+
 
 struct TasksUIView: View {
     var date = ""
@@ -64,6 +72,90 @@ struct TasksUIView: View {
         }
     }
     
+    let motionManager = CMMotionManager()
+    
+    func startAccelerometerUpdates() {
+        if motionManager.isAccelerometerAvailable {
+            motionManager.accelerometerUpdateInterval = 0.1
+            motionManager.startAccelerometerUpdates(to: .main) { (data, error) in
+                guard let accelerometerData = data else { return }
+                
+                let dataDictionary: [String: Any] = [
+                    "x": accelerometerData.acceleration.x,
+                    "y": accelerometerData.acceleration.y,
+                    "z": accelerometerData.acceleration.z,
+                    "timestamp": Date().timeIntervalSince1970
+                ]
+                
+                guard let authCollection = CKStudyUser.shared.authCollection else {
+                       return
+                   }
+                
+                let route = "\(authCollection)\(Constants.dataBucketFHIRQuestionnaireResponse)/\(Date().timeIntervalSince1970)"
+             
+
+               
+                CKApp.sendData(route: route, data: dataDictionary, params: nil) { success, error in
+                    if success {
+                        print("Accelerometer data uploaded successfully!")
+                    } else {
+                        print("Error uploading accelerometer data:", error?.localizedDescription ?? "Unknown error")
+                    }
+                }
+            }
+        } else {
+            print("Accelerometer is not available")
+        }
+    }
+    
+    
+    struct AIModelResponse: Codable {
+        let userId: Int
+        let id: Int
+        let title: String
+        let completed: Bool
+    }
+    
+    @State private var apiResponse: AIModelResponse?
+   
+       
+    func callAPI() {
+       guard let url = URL(string: "https://jsonplaceholder.typicode.com/todos/1") else {
+           print("Invalid URL")
+           return
+       }
+       
+       let task = URLSession.shared.dataTask(with: url) { data, response, error in
+           if let error = error {
+               print("Error: \(error)")
+               return
+           }
+           
+           guard let httpResponse = response as? HTTPURLResponse,
+                 (200...299).contains(httpResponse.statusCode) else {
+               print("Invalid response")
+               return
+           }
+           
+           if let data = data {
+               do {
+                   let apiResponse = try JSONDecoder().decode(AIModelResponse.self, from: data)
+                   print("API Response: \(apiResponse)")
+                   
+                   DispatchQueue.main.async {
+                            self.apiResponse = apiResponse // Update the state on the main thread
+                        }
+               } catch {
+                   print("Error decoding JSON: \(error)")
+               }
+           }
+       }
+       
+       task.resume()
+   }
+    let timer = Timer.publish(every: 5, on: .main, in: .common).autoconnect()
+
+    
     var body: some View {
         VStack {
             Text(config.read(query: "Study Title") ?? "CardinalKit")
@@ -72,8 +164,18 @@ struct TasksUIView: View {
                 .padding(.top, 10)
             Text(config.read(query: "Team Name") ?? "Stanford Byers Center for Bidoesign")
                 .font(.system(size: 15, weight: .light))
+        
             Text(date).font(.system(size: 18, weight: .regular)).padding()
-            
+            Button(action: {
+                startAccelerometerUpdates()
+            }) {
+                Text("Start Accelerometer Updates")
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(Color.blue)
+                    .cornerRadius(10)
+            }
+            .padding()
             if useCloudSurveys {
                 List {
                     ForEach(listItemsSections, id: \.self) { key in
@@ -99,13 +201,21 @@ struct TasksUIView: View {
                     }
                 }.listStyle(GroupedListStyle())
             }
+            Text(apiResponse != nil ? "API Response: \(apiResponse!.completed.description)" : "No response yet")
         }
         .onAppear(perform: {
             self.useCloudSurveys = config.readBool(query: "Use Cloud Surveys") ?? false
             if self.useCloudSurveys {
                 getRemoteItems()
             }
+            
         })
+        .onReceive(timer) { _ in
+             print("Timer ticked!")
+                        // Call the function at each timer tick
+                self.callAPI()
+        }
+        
     }
 }
 

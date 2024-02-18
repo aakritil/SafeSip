@@ -51,8 +51,4 @@ struct LocalTaskListItemView: View {
     }
 }
 
-struct LocalTaskListItemView_Previews: PreviewProvider {
-    static var previews: some View {
-        LocalTaskListItemView(item: .sampleCoreMotionAppleWatch)
-    }
-}
+

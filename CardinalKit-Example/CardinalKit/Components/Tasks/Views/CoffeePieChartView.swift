@@ -22,9 +22,9 @@ struct CoffeePieChartView: UIViewRepresentable {
         let chartView = ORKPieChartView()
         chartView.tintColor = tintColor
         chartView.showsTitleAboveChart = true
-        chartView.title = "Do you drink coffee?"
-        chartView.text = "How many cups per day?"
-        chartView.noDataText = "Take the coffee survey and come back!"
+        chartView.title = "Do you drink alcohol?"
+        chartView.text = "How many drinks per day?"
+        chartView.noDataText = "Take the alcohol survey and come back!"
         
         CoffeeChartDataSource.fetchData { result in
             let dataSource = CoffeeChartDataSource(countPerAnswer: result)
