@@ -12,8 +12,8 @@ struct MainUIView: View {
     let color: Color
     let config = CKConfig.shared
     
-    @State var useCareKit = false
-    @State var carekitLoaded = false
+    @State var useCareKit = true
+    @State var carekitLoaded = true
 
     var body: some View {
         TabView {

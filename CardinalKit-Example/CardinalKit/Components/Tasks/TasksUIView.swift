@@ -114,9 +114,12 @@ struct TasksUIView: View {
         let id: Int
         let title: String
         let completed: Bool
+        let value: Double
     }
     
     @State private var apiResponse: AIModelResponse?
+
+    let threshold: Double = 0.7 // Example threshold
    
        
     func callAPI() {
@@ -154,7 +157,6 @@ struct TasksUIView: View {
        task.resume()
    }
     let timer = Timer.publish(every: 5, on: .main, in: .common).autoconnect()
-
     
     var body: some View {
         VStack {
@@ -179,19 +181,24 @@ struct TasksUIView: View {
             .padding()
             
             HStack {
-                Image(systemName: apiResponse?.completed ?? false ? "exclamationmark.circle" : "checkmark.circle")
-                    .resizable() // Allows the image to be resized
-                    .aspectRatio(contentMode: .fit) // Maintains the aspect ratio of the image
-                    .frame(width: 50, height: 50) // Sets the image size to 50x50 points
-                    .foregroundColor(apiResponse?.completed ?? false ? .red : .green)
-                    .background(Circle() // Wraps the icon in a circular background
-                        .foregroundColor(.white) // Sets the circle color to white, you can change this as needed
-                        .frame(width: 60, height: 60)) // Makes the circle slightly larger than the icon
-                Text(apiResponse?.completed ?? false ? "Warning" : "Normal")
-                    .foregroundColor(apiResponse?.completed ?? false ? .red : .green)
+                Image(systemName: (apiResponse?.value ?? 0) < threshold ? "checkmark.circle" : "exclamationmark.circle")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 50, height: 50)
+                    .foregroundColor((apiResponse?.value ?? 0) < threshold ? .green : .red)
+                    .background(Circle()
+                                    .foregroundColor(.white)
+                                    .frame(width: 60, height: 60))
+                // Use string interpolation to create the status text
+                let statusText = (apiResponse?.value ?? 0) < threshold ? "Normal" : "Warning"
+                // Format the value as a string with two decimal places
+                let valueText = String(format: "%.2f", apiResponse?.value ?? 0)
+                // Combine status and value texts
+                Text("\(statusText) \(valueText)")
+                    .foregroundColor((apiResponse?.value ?? 0) < threshold ? .green : .black) // Use .black for value color
                     .font(.system(size: 30))
             }
-            .padding() // Adds some padding around the HStack contents
+            .padding()
 
 
             if useCloudSurveys {
@@ -219,7 +226,7 @@ struct TasksUIView: View {
                     }
                 }.listStyle(GroupedListStyle())
             }
-            Text(apiResponse != nil ? "API Response: \(apiResponse!.completed.description)" : "No response yet")
+//            Text(apiResponse != nil ? "API Response: \(apiResponse!.completed.description)" : "No response yet")
         }
         .onAppear(perform: {
             self.useCloudSurveys = config.readBool(query: "Use Cloud Surveys") ?? false

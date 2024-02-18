@@ -39,6 +39,7 @@
 		5822BF522B817BBB00F94625 /* DataCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5822BF512B817BBB00F94625 /* DataCollectionView.swift */; };
 		6333443D2AAE1E56006DC7A7 /* ResearchKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6333443C2AAE1E56006DC7A7 /* ResearchKit */; };
 		6372202D2AAE390C00367157 /* CKSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6372202C2AAE390C00367157 /* CKSessionTests.swift */; };
+		6C89FE2B2B81F44C00A98419 /* EducationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C89FE2A2B81F44C00A98419 /* EducationView.swift */; };
 		8E0A43AC244A4A0400656518 /* CKStudyUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A4382244A4A0400656518 /* CKStudyUser.swift */; };
 		8E0A43AD244A4A0400656518 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A4384244A4A0400656518 /* Constants.swift */; };
 		8E0A43AF244A4A0400656518 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E0A4388244A4A0400656518 /* Assets.xcassets */; };
@@ -161,9 +162,10 @@
 		5822BF4D2B81738A00F94625 /* HotlineUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotlineUIView.swift; sourceTree = "<group>"; };
 		5822BF512B817BBB00F94625 /* DataCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCollectionView.swift; sourceTree = "<group>"; };
 		5B3D62399A6AD2DDCE5BC6B8 /* Pods-CardinalKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CardinalKit_Example.debug.xcconfig"; path = "Target Support Files/Pods-CardinalKit_Example/Pods-CardinalKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		607FACD01AFB9204008FA782 /* CardinalKit Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CardinalKit Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACD01AFB9204008FA782 /* SafeSip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafeSip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62AA5CD1C2188D392530510F /* CardinalKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CardinalKit.podspec; path = ../CardinalKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		6372202C2AAE390C00367157 /* CKSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKSessionTests.swift; sourceTree = "<group>"; };
+		6C89FE2A2B81F44C00A98419 /* EducationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationView.swift; sourceTree = "<group>"; };
 		8E0A4378244A4A0300656518 /* CardinalKit_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CardinalKit_Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		8E0A4382244A4A0400656518 /* CKStudyUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKStudyUser.swift; sourceTree = "<group>"; };
 		8E0A4384244A4A0400656518 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -329,7 +331,7 @@
 		607FACD11AFB9204008FA782 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				607FACD01AFB9204008FA782 /* CardinalKit Example.app */,
+				607FACD01AFB9204008FA782 /* SafeSip.app */,
 				27663F2729574F1500A34080 /* CardinalKit ExampleTests.xctest */,
 			);
 			name = Products;
@@ -459,6 +461,7 @@
 				27653A12272A2E7700D74E83 /* LocalTaskListItemView.swift */,
 				8E6E1E27253538CC0024B8DF /* CloudTaskListItemView.swift */,
 				5822BF4D2B81738A00F94625 /* HotlineUIView.swift */,
+				6C89FE2A2B81F44C00A98419 /* EducationView.swift */,
 				5822BF512B817BBB00F94625 /* DataCollectionView.swift */,
 			);
 			path = Views;
@@ -635,7 +638,7 @@
 				6333443C2AAE1E56006DC7A7 /* ResearchKit */,
 			);
 			productName = CardinalKit;
-			productReference = 607FACD01AFB9204008FA782 /* CardinalKit Example.app */;
+			productReference = 607FACD01AFB9204008FA782 /* SafeSip.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -904,6 +907,7 @@
 				8E7FFFBB25DE37FF002982B4 /* CoffeePieChartView.swift in Sources */,
 				2777DADD2969F76300F2ECD4 /* CKSignInView.swift in Sources */,
 				8E7FFFB825DE350A002982B4 /* CoffeeUIView.swift in Sources */,
+				6C89FE2B2B81F44C00A98419 /* EducationView.swift in Sources */,
 				2B19DD9226FE1BEB00649CE1 /* JsonToSurvey.swift in Sources */,
 				8E0A43B5244A4A0400656518 /* LocalTaskItem.swift in Sources */,
 				2BD5328326C2CC4E00C4636E /* CKResearchSurveysManager.swift in Sources */,
@@ -1144,7 +1148,7 @@
 				MARKETING_VERSION = 2.2.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.safesip.james;
-				PRODUCT_NAME = "CardinalKit Example";
+				PRODUCT_NAME = SafeSip;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "CardinalKit/Supporting Files/CardinalKit_Example-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1174,7 +1178,7 @@
 				);
 				MARKETING_VERSION = 2.2.0;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_NAME = "CardinalKit Example";
+				PRODUCT_NAME = SafeSip;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "CardinalKit Example";
 				SWIFT_OBJC_BRIDGING_HEADER = "CardinalKit/Supporting Files/CardinalKit_Example-Bridging-Header.h";

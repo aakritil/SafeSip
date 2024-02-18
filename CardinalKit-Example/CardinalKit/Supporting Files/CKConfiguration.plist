@@ -179,23 +179,89 @@
 			<key>givenName</key>
 			<string>James</string>
 			<key>familyName</key>
-			<string>Appleseed</string>
+			<string>Pan</string>
 			<key>title</key>
-			<string>OBGYN</string>
+			<string>Roommate</string>
 			<key>role</key>
-			<string>Dr. Appleseed is an OBGYN with 13 years of experience.</string>
+			<string></string>
+			<key>phone</key>
+			<string>646-812-0398</string>
+			<key>text</key>
+			<string>646-812-0398</string>
+			<key>street</key>
+			<string>70 Morningside Dr</string>
+			<key>city</key>
+			<string>New York</string>
+			<key>state</key>
+			<string>NY</string>
+			<key>postalCode</key>
+			<string>10027</string>
+		</dict>
+		<dict>
+			<key>givenName</key>
+			<string>Alan</string>
+			<key>familyName</key>
+			<string>Ma</string>
+			<key>title</key>
+			<string>Brother</string>
+			<key>role</key>
+			<string></string>
 			<key>phone</key>
 			<string>(324) 555-7415</string>
 			<key>text</key>
 			<string>(324) 555-7415</string>
 			<key>street</key>
-			<string>318 Campus Drive</string>
+			<string>United Nations</string>
+			<key>city</key>
+			<string>New York</string>
+			<key>state</key>
+			<string>NY</string>
+			<key>postalCode</key>
+			<string>10025</string>
+		</dict>
+		<dict>
+			<key>givenName</key>
+			<string>Aakriti</string>
+			<key>familyName</key>
+			<string>L</string>
+			<key>title</key>
+			<string>Sister</string>
+			<key>role</key>
+			<string></string>
+			<key>phone</key>
+			<string>(324) 555-7415</string>
+			<key>text</key>
+			<string>(324) 555-7415</string>
+			<key>street</key>
+			<string>385 Campus Drive</string>
 			<key>city</key>
 			<string>Stanford</string>
 			<key>state</key>
 			<string>CA</string>
 			<key>postalCode</key>
-			<string>94305</string>
+			<string>98325</string>
+		</dict>
+		<dict>
+			<key>givenName</key>
+			<string>Akshay</string>
+			<key>familyName</key>
+			<string>M</string>
+			<key>title</key>
+			<string>Professor</string>
+			<key>role</key>
+			<string></string>
+			<key>phone</key>
+			<string>(324) 555-7415</string>
+			<key>text</key>
+			<string>(324) 555-7415</string>
+			<key>street</key>
+			<string>One Apple Park Way</string>
+			<key>city</key>
+			<string>Cupertino</string>
+			<key>state</key>
+			<string>CA</string>
+			<key>postalCode</key>
+			<string>95012</string>
 		</dict>
 	</array>
 	<key>Use Cloud Surveys</key>

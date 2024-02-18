@@ -181,9 +181,9 @@ enum TaskSamples {
               "resourceType": "Questionnaire",
               "language": "en-US",
               "id": "ckicecreamexample",
-              "title": "Ice Cream Example",
+              "title": "Alcohol Example",
               "status": "draft",
-              "publisher": "Stanford Biodesign for Digital Health",
+              "publisher": "TreeHacks <3",
               "meta": {
                 "profile": [
                   "http://cardinalkit.org/fhir/StructureDefinition/sdf-Questionnaire"
@@ -225,13 +225,13 @@ enum TaskSamples {
                 {
                   "linkId": "f0f95365-96d2-4892-9ccf-2e2c0c74a87c",
                   "type": "boolean",
-                  "text": "Do you like ice cream?",
+                  "text": "Do you like alcohol?",
                   "required": true
                 },
                 {
                   "linkId": "59e7a3f7-4108-47a7-8fae-0fb892574a63",
                   "type": "open-choice",
-                  "text": "What is your favorite flavor?",
+                  "text": "What is your favorite liquor?",
                   "required": false,
                   "answerOption": [
                     {
@@ -239,7 +239,7 @@ enum TaskSamples {
                         "id": "460afea8-2634-4bb4-89d2-001d92624d6c",
                         "code": "chocolate",
                         "system": "urn:uuid:ea53f9f1-4c06-4953-83b6-c944bccdeae3",
-                        "display": "Chocolate"
+                        "display": "Vodka"
                       }
                     },
                     {
@@ -247,7 +247,7 @@ enum TaskSamples {
                         "id": "6fef1216-0b74-40bd-e773-2bd4a7f66e45",
                         "code": "vanilla",
                         "system": "urn:uuid:ea53f9f1-4c06-4953-83b6-c944bccdeae3",
-                        "display": "Vanilla"
+                        "display": "Burbon"
                       }
                     },
                     {
@@ -255,7 +255,7 @@ enum TaskSamples {
                         "id": "abc0a0bf-0e35-48db-8f0f-b2d30038816b",
                         "code": "strawberry",
                         "system": "urn:uuid:ea53f9f1-4c06-4953-83b6-c944bccdeae3",
-                        "display": "Strawberry"
+                        "display": "Wisky"
                       }
                     },
                   ],

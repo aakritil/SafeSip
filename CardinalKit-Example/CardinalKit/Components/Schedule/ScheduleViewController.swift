@@ -43,8 +43,8 @@ class ScheduleViewController: OCKDailyPageViewController {
             case .success(let tasks):
 
                 // Add a non-CareKit view into the list
-                let tipTitle = "Customize your app!"
-                let tipText = "Start with the CKConfiguration.plist file."
+                let tipTitle = "Track your alcohol intake!"
+                let tipText = "Swipe to see how your alcohol intake has changed throughout theweek"
 
                 // Only show the tip view on the current date
                 if Calendar.current.isDate(date, inSameDayAs: Date()) {
@@ -54,16 +54,75 @@ class ScheduleViewController: OCKDailyPageViewController {
                     tipView.imageView.image = UIImage(named: "GraphicOperatingSystem")
                     listViewController.appendView(tipView, animated: false)
                 }
+                
+                struct SpeedometerView: View {
+                    let value: Double // Value to display, between 0 and 0.2
 
-                if #available(iOS 14, *), let walkTask = tasks.first(where: { $0.id == "steps" }) {
-                    let view = NumericProgressTaskView(
-                        task: walkTask,
-                        eventQuery: OCKEventQuery(for: date),
-                        storeManager: self.storeManager
-                    ).padding([.vertical], 10)
-
-                    listViewController.appendViewController(view.formattedHostingController(), animated: false)
+                    var body: some View {
+                        let gradientStop = min(value / 0.2, 1) // This determines the length of the colored segment
+                        
+                        // Define a full gradient from green to red
+                        let gradient = AngularGradient(
+                            gradient: Gradient(colors: [.green, .red]),
+                            center: .center,
+                            startAngle: .degrees(-90), // Start from the top (270 degrees)
+                            endAngle: .degrees(270)    // End at the top (270 degrees, full circle)
+                        )
+                        
+                        ZStack {
+                            Circle()
+                                .stroke(lineWidth: 15)
+                                .opacity(0.3)
+                            
+                            // Apply the gradient to a full circle but trim it to show only the part that corresponds to the current value
+                            Circle()
+                                .trim(from: 0, to: CGFloat(gradientStop))
+                                .stroke(gradient, style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
+                                .rotationEffect(Angle(degrees: 270)) // Rotate to start from the top
+                            
+                            VStack {
+                                Text("Daily Average TAC:")
+                                    .font(.title)
+                                    .bold()
+                                Text("(Transdermal Alcohol Concentration)")
+                                    .font(.subheadline)
+                                    .bold()
+                                    .padding()
+                                Text(String(format: "%.2f", min(self.value, 0.2)))
+                                    .font(.title)
+                                    .bold()
+                            }
+                        }
+                    }
                 }
+                
+                if #available(iOS 14, *), let walkTask = tasks.first(where: { $0.id == "steps" }) {
+                    // Generate a random value between 0 and 10
+                    let randomValue = Double.random(in: 0...0.2)
+                    
+                    // Create the custom Speedometer SwiftUI view with the random value
+                    let speedometerView = SpeedometerView(value: randomValue)
+                    
+                    // Use a UIHostingController to wrap the SwiftUI view
+                    let hostingController = UIHostingController(rootView: speedometerView)
+                    hostingController.view.backgroundColor = .clear
+                    
+                    // Adjust the size of the hosting controller's view if necessary
+                    hostingController.preferredContentSize = CGSize(width: 200, height: 200) // Adjust size as needed
+                    
+                    // Append the hosting controller to the listViewController
+                    listViewController.appendViewController(hostingController, animated: false)
+                }
+
+//                if #available(iOS 14, *), let walkTask = tasks.first(where: { $0.id == "steps" }) {
+//                    let view = NumericProgressTaskView(
+//                        task: walkTask,
+//                        eventQuery: OCKEventQuery(for: date),
+//                        storeManager: self.storeManager
+//                    ).padding([.vertical], 10)
+//
+//                    listViewController.appendViewController(view.formattedHostingController(), animated: false)
+//                }
 
                 // Since the coffee task is only scheduled every other day, there will be cases
                 // where it is not contained in the tasks array returned from the query.

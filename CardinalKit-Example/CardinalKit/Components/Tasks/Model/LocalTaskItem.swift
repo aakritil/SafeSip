@@ -32,7 +32,7 @@ enum LocalTaskItem: Int {
         case .alchoholHotlines:
             return "Hotlines"
         case .sampleFHIRSurvey:
-            return "Survey (FHIR)"
+            return "The Science of Alcohol"
 //        case .sampleResearchKitActiveTask:
 //            return "Active Task (ResearchKit)"
 //        case .sampleCoreMotionAppleWatch:
@@ -54,7 +54,7 @@ enum LocalTaskItem: Int {
         case .alchoholHotlines:
             return "Important Hotlines!"
         case .sampleFHIRSurvey:
-            return "Sample questions and forms."
+            return "Learn more! "
 //        case .sampleResearchKitActiveTask:
 //            return "Sample sensor/data collection activities."
 //        case .sampleCoreMotionAppleWatch:
@@ -76,9 +76,9 @@ enum LocalTaskItem: Int {
     var image: UIImage? {
         switch self {
         case .alchoholHotlines:
-            return getImage(named: "HotlineIcon")
-        case .sampleFHIRSurvey:
             return getImage(named: "SurveyIcon")
+        case .sampleFHIRSurvey:
+            return getImage(named: "DataIcon")
         case .sampleFunCoffeeSurvey:
             return getImage(named: "CoffeeIcon")
 //        case .sampleFunCoffeeResult:
@@ -100,7 +100,7 @@ enum LocalTaskItem: Int {
         case .alchoholHotlines, .sampleFunCoffeeSurvey:
             return "Important Information"
         case .sampleFHIRSurvey:
-            return "Your Current Stat"
+            return "Education Tab"
     
         }
     }
@@ -114,7 +114,8 @@ enum LocalTaskItem: Int {
         case .alchoholHotlines:
             return AnyView(HotlineUIView())
         case .sampleFHIRSurvey:
-            return AnyView(CKFHIRTaskViewController(tasks: TaskSamples.sampleFHIRTask))
+            return AnyView(EducationView())
+            //return AnyView(CKFHIRTaskViewController(tasks: TaskSamples.sampleFHIRTask))
        
         case .sampleFunCoffeeSurvey:
             return AnyView(CKTaskViewController(tasks: TaskSamples.sampleCoffeeTask))

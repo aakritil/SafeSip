@@ -282,7 +282,7 @@ extension OCKHealthKitPassthroughStore {
 
         let steps = OCKHealthKitTask(
             id: "steps",
-            title: "Daily Steps Goal 🏃🏽‍♂️",
+            title: "A Tracker of Past Alcohol Intake",
             carePlanUUID: nil,
             schedule: schedule,
             healthKitLinkage: OCKHealthKitLinkage(
