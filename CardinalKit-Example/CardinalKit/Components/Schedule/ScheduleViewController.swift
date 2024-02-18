@@ -59,16 +59,18 @@ class ScheduleViewController: OCKDailyPageViewController {
                     let value: Double // Value to display, between 0 and 0.2
 
                     var body: some View {
-                        let gradientStop = min(value / 0.2, 1) // This determines the length of the colored segment
-                        
+                        // This ensures the proportion of the circle filled corresponds to the value
+                        let gradientStop = min(value / 0.2, 1)
+
                         // Define a full gradient from green to red
                         let gradient = AngularGradient(
                             gradient: Gradient(colors: [.green, .red]),
                             center: .center,
-                            startAngle: .degrees(-90), // Start from the top (270 degrees)
-                            endAngle: .degrees(270)    // End at the top (270 degrees, full circle)
+                            // Adjust the start and end angles to match the circle's rotation
+                            startAngle: .degrees(-2), // Start from the bottom (270 degrees)
+                            endAngle: .degrees(358)    // End at the bottom after a full circle (270 + 360 degrees)
                         )
-                        
+
                         ZStack {
                             Circle()
                                 .stroke(lineWidth: 15)
@@ -78,7 +80,7 @@ class ScheduleViewController: OCKDailyPageViewController {
                             Circle()
                                 .trim(from: 0, to: CGFloat(gradientStop))
                                 .stroke(gradient, style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
-                                .rotationEffect(Angle(degrees: 270)) // Rotate to start from the top
+                                .rotationEffect(Angle(degrees: 270)) // Rotate to start from the bottom
                             
                             VStack {
                                 Text("Daily Average TAC:")
@@ -95,24 +97,26 @@ class ScheduleViewController: OCKDailyPageViewController {
                         }
                     }
                 }
+
                 
-                if #available(iOS 14, *), let walkTask = tasks.first(where: { $0.id == "steps" }) {
-                    // Generate a random value between 0 and 10
-                    let randomValue = Double.random(in: 0...0.2)
-                    
-                    // Create the custom Speedometer SwiftUI view with the random value
-                    let speedometerView = SpeedometerView(value: randomValue)
-                    
-                    // Use a UIHostingController to wrap the SwiftUI view
-                    let hostingController = UIHostingController(rootView: speedometerView)
-                    hostingController.view.backgroundColor = .clear
-                    
-                    // Adjust the size of the hosting controller's view if necessary
-                    hostingController.preferredContentSize = CGSize(width: 200, height: 200) // Adjust size as needed
-                    
-                    // Append the hosting controller to the listViewController
-                    listViewController.appendViewController(hostingController, animated: false)
+               if Calendar.current.isDateInToday(date) || date <= Date() {
+                        // Generate a random value between 0 and 0.2
+                        let randomValue = Double.random(in: 0...0.2)
+                        
+                        // Create the custom Speedometer SwiftUI view with the random value
+                        let speedometerView = SpeedometerView(value: randomValue)
+                        
+                        // Use a UIHostingController to wrap the SwiftUI view
+                        let hostingController = UIHostingController(rootView: speedometerView)
+                        hostingController.view.backgroundColor = .clear
+                        
+                        // Adjust the size of the hosting controller's view if necessary
+                        hostingController.preferredContentSize = CGSize(width: 200, height: 200) // Adjust size as needed
+                        
+                        // Append the hosting controller to the listViewController
+                        listViewController.appendViewController(hostingController, animated: false)
                 }
+
 
 //                if #available(iOS 14, *), let walkTask = tasks.first(where: { $0.id == "steps" }) {
 //                    let view = NumericProgressTaskView(
