@@ -159,9 +159,10 @@ struct TasksUIView: View {
     var body: some View {
         VStack {
             Text(config.read(query: "Study Title") ?? "CardinalKit")
-                .font(.system(size: 25, weight: .bold))
+                .font(.system(size: 40, weight: .bold))
                 .foregroundColor(self.color)
-                .padding(.top, 10)
+                .padding(.top, 17)
+                .padding(.bottom, 3)
             Text(config.read(query: "Team Name") ?? "Stanford Byers Center for Bidoesign")
                 .font(.system(size: 15, weight: .light))
         
@@ -172,10 +173,26 @@ struct TasksUIView: View {
                 Text("Start Accelerometer Updates")
                     .padding()
                     .foregroundColor(.white)
-                    .background(Color.blue)
+                    .background(Color.pink)
                     .cornerRadius(10)
             }
             .padding()
+            
+            HStack {
+                Image(systemName: "exclamationmark.circle")
+                    .resizable() // Allows the image to be resized
+                    .aspectRatio(contentMode: .fit) // Maintains the aspect ratio of the image
+                    .frame(width: 50, height: 50) // Sets the image size to 50x50 points
+                    .foregroundColor(apiResponse?.completed ?? false ? .red : .green)
+                    .background(Circle() // Wraps the icon in a circular background
+                        .foregroundColor(.white) // Sets the circle color to white, you can change this as needed
+                        .frame(width: 60, height: 60)) // Makes the circle slightly larger than the icon
+                Text(apiResponse?.completed ?? false ? "Warning" : "Normal")
+                    .foregroundColor(apiResponse?.completed ?? false ? .red : .green)
+            }
+            .padding() // Adds some padding around the HStack contents
+
+
             if useCloudSurveys {
                 List {
                     ForEach(listItemsSections, id: \.self) { key in
