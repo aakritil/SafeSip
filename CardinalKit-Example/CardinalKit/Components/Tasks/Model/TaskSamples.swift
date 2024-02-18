@@ -58,9 +58,9 @@ enum TaskSamples {
             minimumValueDescription: "None 😴"
         )
         let coffeeScaleQuestionStep = ORKQuestionStep(
-            identifier: "CoffeeScaleQuestionStep",
-            title: "Coffee Intake",
-            question: "How many cups of coffee do you drink per day?",
+            identifier: "AlcoholScaleQuestionStep",
+            title: "Alcohol Intake",
+            question: "How many cups of alcohol do you drink per day?",
             answer: coffeeScaleAnswerFormat
         )
         

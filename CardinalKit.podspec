@@ -7,8 +7,8 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'CardinalKit'
-  s.version          = '2.2.0'
+  s.name             = 'SafeSip'
+  s.version          = '1.1.0'
   s.summary          = 'https://cardinalkit.org/'
 
   s.description      = 'CardinalKit empowers the digital health community to rapidly prototype and build modern, interoperable, scalable digital health solutions on a variety of platforms.'
