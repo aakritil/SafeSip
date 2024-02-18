@@ -135,7 +135,7 @@
 		270CDC0B28A65AD300F2F053 /* CKUploadFHIRTaskViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKUploadFHIRTaskViewControllerDelegate.swift; sourceTree = "<group>"; };
 		275A6AC4296A684800DA4943 /* OnboardingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageView.swift; sourceTree = "<group>"; };
 		27653A12272A2E7700D74E83 /* LocalTaskListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTaskListItemView.swift; sourceTree = "<group>"; };
-		27663F2729574F1500A34080 /* CardinalKit ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CardinalKit ExampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		27663F2729574F1500A34080 /* SafeSip ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SafeSip ExampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		27663F2929574F1500A34080 /* CardinalKit_ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardinalKit_ExampleTests.swift; sourceTree = "<group>"; };
 		2777DADC2969F76300F2ECD4 /* CKSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKSignInView.swift; sourceTree = "<group>"; };
 		27797417296289F2006D6DE5 /* CKInstructionSteps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKInstructionSteps.swift; sourceTree = "<group>"; };
@@ -258,13 +258,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		27663F2829574F1500A34080 /* CardinalKit ExampleTests */ = {
+		27663F2829574F1500A34080 /* SafeSip ExampleTests */ = {
 			isa = PBXGroup;
 			children = (
 				27663F2929574F1500A34080 /* CardinalKit_ExampleTests.swift */,
 				6372202C2AAE390C00367157 /* CKSessionTests.swift */,
 			);
-			path = "CardinalKit ExampleTests";
+			path = "SafeSip ExampleTests";
 			sourceTree = "<group>";
 		};
 		2C45A885E8BD0CAC5349997A /* Frameworks */ = {
@@ -320,8 +320,8 @@
 				270AF36127872C13002945A7 /* CardinalKit_ExampleRelease.entitlements */,
 				8E0A438B244A4A0400656518 /* CardinalKit-Example.entitlements */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
-				607FACD21AFB9204008FA782 /* CardinalKit-Example */,
-				27663F2829574F1500A34080 /* CardinalKit ExampleTests */,
+				607FACD21AFB9204008FA782 /* SafeSip-Example */,
+				27663F2829574F1500A34080 /* SafeSip ExampleTests */,
 				607FACD11AFB9204008FA782 /* Products */,
 				A562A578C883F67F0DAE1385 /* Pods */,
 				2C45A885E8BD0CAC5349997A /* Frameworks */,
@@ -332,12 +332,12 @@
 			isa = PBXGroup;
 			children = (
 				607FACD01AFB9204008FA782 /* SafeSip.app */,
-				27663F2729574F1500A34080 /* CardinalKit ExampleTests.xctest */,
+				27663F2729574F1500A34080 /* SafeSip ExampleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		607FACD21AFB9204008FA782 /* CardinalKit-Example */ = {
+		607FACD21AFB9204008FA782 /* SafeSip-Example */ = {
 			isa = PBXGroup;
 			children = (
 				8E0A4383244A4A0400656518 /* Supporting Files */,
@@ -348,7 +348,7 @@
 				E235077624F7082700CC1899 /* SceneDelegate.swift */,
 				2F94C5F12536543600DF8866 /* SceneDelegate+CardinalKit.swift */,
 			);
-			name = "CardinalKit-Example";
+			name = "SafeSip-Example";
 			path = CardinalKit;
 			sourceTree = "<group>";
 		};
@@ -609,7 +609,7 @@
 			);
 			name = "CardinalKit ExampleTests";
 			productName = "CardinalKit ExampleTests";
-			productReference = 27663F2729574F1500A34080 /* CardinalKit ExampleTests.xctest */;
+			productReference = 27663F2729574F1500A34080 /* SafeSip ExampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		607FACCF1AFB9204008FA782 /* CardinalKit_Example */ = {
@@ -987,7 +987,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.stanfordBDHG.CardinalKit-ExampleTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "SafeSip ExampleTests";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -1019,7 +1019,7 @@
 				MARKETING_VERSION = 1.0;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.stanfordBDHG.CardinalKit-ExampleTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "SafeSip ExampleTests";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1140,12 +1140,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8GK666AU97;
 				INFOPLIST_FILE = "CardinalKit/Supporting Files/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = SafeSip;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.2.0;
+				MARKETING_VERSION = 1.1.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.safesip.james;
 				PRODUCT_NAME = SafeSip;
@@ -1171,12 +1173,14 @@
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 637867499T;
 				INFOPLIST_FILE = "CardinalKit/Supporting Files/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = SafeSip;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.2.0;
+				MARKETING_VERSION = 1.1.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_NAME = SafeSip;
 				PROVISIONING_PROFILE_SPECIFIER = "";

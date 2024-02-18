@@ -87,63 +87,63 @@
 			<key>Title</key>
 			<string>Data Gathering</string>
 			<key>Summary</key>
-			<string>Here you should write a bit about what data you are collecting, and why.</string>
+			<string>SafeSip collects data related to gait, movement patterns, and physiological parameters through your device&apos;s accelerometer and digital health sensors. This information allows us to provide real-time assessments of intoxication levels, offering timely warnings and advice to help manage alcohol consumption. The collection of this data is crucial for the app&apos;s functionality in promoting safer drinking habits and preventing hazardous outcomes.</string>
 			<key>Content</key>
-			<string>Here you should write a bit about what data you are collecting, and why. Additional content written here will show in final consent review form and generated PDF.</string>
+			<string>SafeSip collects data related to gait, movement patterns, and physiological parameters through your device&apos;s accelerometer and digital health sensors. This information allows us to provide real-time assessments of intoxication levels, offering timely warnings and advice to help manage alcohol consumption. The collection of this data is crucial for the app&apos;s functionality in promoting safer drinking habits and preventing hazardous outcomes.</string>
 		</dict>
 		<key>Privacy</key>
 		<dict>
 			<key>Title</key>
 			<string>Privacy</string>
 			<key>Summary</key>
-			<string>What is your commitment in terms of data protection to your app participants? Who will have access to data?</string>
+			<string>At SafeSip, we are deeply committed to safeguarding the privacy and security of our participants&apos; data. We employ state-of-the-art encryption and security measures to ensure that all information is securely stored and protected against unauthorized access. Access to personal data is strictly limited to authorized SafeSip team members who are trained in data protection protocols and need this information to perform their duties. We do not share or sell your data to third parties without your explicit consent.</string>
 			<key>Content</key>
-			<string>What is your commitment in terms of data protection to your app participants? Who will have access to data? Additional content written here will show in final consent review form and generated PDF.</string>
+			<string>At SafeSip, we are deeply committed to safeguarding the privacy and security of our participants&apos; data. We employ state-of-the-art encryption and security measures to ensure that all information is securely stored and protected against unauthorized access. Access to personal data is strictly limited to authorized SafeSip team members who are trained in data protection protocols and need this information to perform their duties. We do not share or sell your data to third parties without your explicit consent.</string>
 		</dict>
 		<key>DataUse</key>
 		<dict>
 			<key>Title</key>
 			<string>Data Use</string>
 			<key>Summary</key>
-			<string>Information about your team&apos;s use of data.</string>
+			<string>Our team uses the collected data to continuously improve SafeSip&apos;s accuracy and effectiveness in assessing intoxication levels and providing actionable insights. We also use aggregated, anonymized data for research and development purposes to better understand drinking patterns and improve public health strategies related to alcohol consumption. Individual data is never used for research without explicit consent.</string>
 			<key>Content</key>
-			<string>Information about your team&apos;s use of data. Additional content.</string>
+			<string>Our team uses the collected data to continuously improve SafeSip&apos;s accuracy and effectiveness in assessing intoxication levels and providing actionable insights. We also use aggregated, anonymized data for research and development purposes to better understand drinking patterns and improve public health strategies related to alcohol consumption. Individual data is never used for research without explicit consent.</string>
 		</dict>
 		<key>TimeCommitment</key>
 		<dict>
 			<key>Title</key>
 			<string>Time Commitment</string>
 			<key>Summary</key>
-			<string>Information about the expected time commitment per app participant.</string>
+			<string>Participation in SafeSip requires minimal time commitment from our users. The app runs discreetly in the background, monitoring movement and physiological parameters during periods of alcohol consumption. Users may occasionally be prompted to provide feedback or complete brief surveys to enhance app performance and user experience.</string>
 			<key>Content</key>
-			<string>Information about the expected time commitment per app participant. Additional content.</string>
+			<string>Participation in SafeSip requires minimal time commitment from our users. The app runs discreetly in the background, monitoring movement and physiological parameters during periods of alcohol consumption. Users may occasionally be prompted to provide feedback or complete brief surveys to enhance app performance and user experience.</string>
 		</dict>
 		<key>StudySurvey</key>
 		<dict>
 			<key>Title</key>
 			<string>Study Survey</string>
 			<key>Summary</key>
-			<string>Information about any survey(s) in the app.</string>
+			<string>SafeSip may include short, voluntary surveys designed to gather feedback on your experiences with the app and your drinking habits. These surveys are crucial for tailoring the app to better suit our users&apos; needs and contribute to our understanding of effective interventions for safer alcohol consumption.</string>
 			<key>Content</key>
-			<string>Information about any survey(s) in the app. Additional content.</string>
+			<string>SafeSip may include short, voluntary surveys designed to gather feedback on your experiences with the app and your drinking habits. These surveys are crucial for tailoring the app to better suit our users&apos; needs and contribute to our understanding of effective interventions for safer alcohol consumption.</string>
 		</dict>
 		<key>StudyTasks</key>
 		<dict>
 			<key>Title</key>
 			<string>Study Tasks</string>
 			<key>Summary</key>
-			<string>Information about any task(s) in the app.</string>
+			<string>The app may present tasks such as self-reporting alcohol intake or performing simple physical activities to calibrate the app&apos;s sensors. These tasks are designed to be non-intrusive and can be completed at your convenience. Participation in these tasks helps SafeSip provide more accurate and personalized feedback.</string>
 			<key>Content</key>
-			<string>Information about any task(s) in the app. Additional content.</string>
+			<string>The app may present tasks such as self-reporting alcohol intake or performing simple physical activities to calibrate the app&apos;s sensors. These tasks are designed to be non-intrusive and can be completed at your convenience. Participation in these tasks helps SafeSip provide more accurate and personalized feedback.</string>
 		</dict>
 		<key>Withdrawing</key>
 		<dict>
 			<key>Title</key>
 			<string>Withdrawing</string>
 			<key>Summary</key>
-			<string>What should your study participants know about the withdrawing process of your study?</string>
+			<string>Participants have the right to withdraw from using SafeSip at any time without any consequences. If you decide to withdraw, you can simply uninstall the app from your device. Upon request, we can also delete all personal data associated with your account from our servers. Please note that anonymized and aggregated data used in prior analyses cannot be removed, but it will not be linked to your identity.</string>
 			<key>Content</key>
-			<string>What should your study participants know about the withdrawing process of your study? Additional content.</string>
+			<string>Participants have the right to withdraw from using SafeSip at any time without any consequences. If you decide to withdraw, you can simply uninstall the app from your device. Upon request, we can also delete all personal data associated with your account from our servers. Please note that anonymized and aggregated data used in prior analyses cannot be removed, but it will not be linked to your identity.</string>
 		</dict>
 	</dict>
 	<key>Onboarding</key>
