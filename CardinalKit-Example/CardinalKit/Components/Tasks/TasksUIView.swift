@@ -13,6 +13,205 @@ import CareKitFHIR
 import CareKitStore
 import HealthKit
 import UIKit
+import CoreMotion
+import Foundation
+
+
+class ApiResponseManager {
+    static let shared = ApiResponseManager()
+    var apiResponse: responseAPI?
+    
+    private init() {}
+}
+
+struct AccelerometerData: Encodable {
+    let acceleration: CMAcceleration
+    let timestamp: Date
+
+    init(acceleration: CMAcceleration, timestamp: TimeInterval) {
+        self.acceleration = acceleration
+        self.timestamp = Date(timeIntervalSinceReferenceDate: timestamp)
+    }
+
+    // Implement Encodable protocol
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(acceleration.x, forKey: .x)
+        try container.encode(acceleration.y, forKey: .y)
+        try container.encode(acceleration.z, forKey: .z)
+        try container.encode(timestamp, forKey: .timestamp)
+    }
+
+    enum CodingKeys: String, CodingKey {
+        case x
+        case y
+        case z
+        case timestamp
+    }
+    
+}
+
+// Convert [CMAccelerometerData] to [AccelerometerData]
+func convertToCustomData(accelerometerDataArray: [CMAccelerometerData]) -> [AccelerometerData] {
+    return accelerometerDataArray.map { data in
+        AccelerometerData(acceleration: data.acceleration, timestamp: data.timestamp)
+    }
+}
+    
+func convertToDict(accelerometerDataArray: [CMAccelerometerData]) -> [[String: Any]] {
+        return accelerometerDataArray.map { data in
+            return [
+                "acceleration": [
+                    "x": data.acceleration.x,
+                    "y": data.acceleration.y,
+                    "z": data.acceleration.z
+                ],
+                "timestamp": data.timestamp
+            ]
+        }
+}
+
+func createCombinedDictionary(dataJSON: [[String: Any]], response: responseAPI) -> [String: Any] {
+    return [
+        "data": dataJSON,
+        "tac": response.toDictionary()
+    ]
+}
+
+class PeriodicAccelerometerRecorder {
+    let motion = CMMotionManager()
+    var accelerometerData: [CMAccelerometerData] = []
+    var timer: Timer?
+    let interval: TimeInterval = 1.0 / 20.0 // 20 Hz
+    let recordingDuration: TimeInterval = 10.0 // 10 seconds
+    let recordingInterval: TimeInterval = 300.0 // 5 minutes
+    
+    func startRecording() {
+        guard motion.isAccelerometerAvailable else {
+            print("Accelerometer is not available")
+            return
+        }
+        
+        // Schedule timer to start recording periodically
+        timer = Timer.scheduledTimer(withTimeInterval: recordingInterval, repeats: true) { timer in
+            self.recordData()
+        }
+        
+        // Immediately start recording for the first time
+        recordData()
+    }
+    
+    func recordData() {
+        // Reset data array
+        accelerometerData.removeAll()
+        
+        motion.accelerometerUpdateInterval = interval
+        motion.startAccelerometerUpdates()
+        
+        // Schedule timer to stop recording after duration
+        timer = Timer.scheduledTimer(withTimeInterval: recordingDuration, repeats: false) { timer in
+            self.stopRecording()
+        }
+        
+        // Configure a timer to fetch accelerometer data at interval
+        timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { timer in
+            if let data = self.motion.accelerometerData {
+                self.accelerometerData.append(data)
+            }
+        }
+    }
+    
+    func stopRecording() {
+        motion.stopAccelerometerUpdates()
+        timer?.invalidate()
+        timer = nil
+        
+        guard let authCollection = CKStudyUser.shared.authCollection else {
+            return
+        }
+        
+        let route = "\(authCollection)\(Constants.dataBucketFHIRQuestionnaireResponse)/\(Date().timeIntervalSince1970)"
+        
+        callVertexAIModel(with: self.accelerometerData) { result in
+            switch result {
+            case .success(let response_got):
+                print("Received response from Vertex AI:")
+                print("Integer value:", response_got.intValue)
+                print("Boolean value:", response_got.boolValue)
+                
+                ApiResponseManager.shared.apiResponse = response_got
+                
+                CKApp.sendData(route: route, data: createCombinedDictionary(dataJSON: convertToDict(accelerometerDataArray:self.accelerometerData), response: response_got), params: nil) { success, error in
+                    if success {
+                        print("Accelerometer data uploaded successfully!")
+                    } else {
+                        print("Error uploading accelerometer data:", error?.localizedDescription ?? "Unknown error")
+                    }
+                }
+                
+            case .failure(let error):
+                print("Error occurred:", error)
+            }
+        }
+        
+    }
+    
+}
+
+struct responseAPI: Decodable {
+    let intValue: Int
+    let boolValue: Bool
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        intValue = try container.decode(Int.self, forKey: .intValue)
+        boolValue = try container.decode(Bool.self, forKey: .boolValue)
+    }
+    
+    func toDictionary() -> [String: Any] {
+            return [
+                "intValue": intValue,
+                "boolValue": boolValue
+            ]
+        }
+
+    enum CodingKeys: String, CodingKey {
+        case intValue
+        case boolValue
+    }
+}
+
+func callVertexAIModel(with data: [CMAccelerometerData] , completion: @escaping (Result<responseAPI, Error>) -> Void) {
+    let url = URL(string: "https://vertex-ai-endpoint-url")! // Replace with your actual Vertex AI endpoint URL
+    var request = URLRequest(url: url)
+    request.httpMethod = "POST"
+    
+    do {
+        request.httpBody = try JSONEncoder().encode(convertToCustomData(accelerometerDataArray:data))
+    } catch {
+        completion(.failure(error))
+        return
+    }
+    
+    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+    
+    let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        guard let data = data, error == nil else {
+            completion(.failure(error ?? URLError(.badServerResponse)))
+            return
+        }
+        
+        do {
+            let response = try JSONDecoder().decode(responseAPI.self, from: data)
+            completion(.success(response))
+        } catch {
+            completion(.failure(error))
+        }
+    }
+    
+    task.resume()
+}
+
 
 
 
@@ -31,6 +230,7 @@ struct TasksUIView: View {
     let localListItems = LocalTaskItem.allValues
     var localListItemsPerHeader = [String: [LocalTaskItem]]()
     var localListItemsSections = [String]()
+    let recorder = PeriodicAccelerometerRecorder()
 
     init(color: Color) {
         self.color = color
@@ -72,92 +272,11 @@ struct TasksUIView: View {
         }
     }
     
-    let motionManager = CMMotionManager()
-    
-    func startAccelerometerUpdates() {
-        if motionManager.isAccelerometerAvailable {
-            motionManager.accelerometerUpdateInterval = 0.1
-            motionManager.startAccelerometerUpdates(to: .main) { (data, error) in
-                guard let accelerometerData = data else { return }
-                
-                let dataDictionary: [String: Any] = [
-                    "x": accelerometerData.acceleration.x,
-                    "y": accelerometerData.acceleration.y,
-                    "z": accelerometerData.acceleration.z,
-                    "timestamp": Date().timeIntervalSince1970
-                ]
-                
-                guard let authCollection = CKStudyUser.shared.authCollection else {
-                       return
-                   }
-                
-                let route = "\(authCollection)\(Constants.dataBucketFHIRQuestionnaireResponse)/\(Date().timeIntervalSince1970)"
-             
-
-               
-                CKApp.sendData(route: route, data: dataDictionary, params: nil) { success, error in
-                    if success {
-                        print("Accelerometer data uploaded successfully!")
-                    } else {
-                        print("Error uploading accelerometer data:", error?.localizedDescription ?? "Unknown error")
-                    }
-                }
-            }
-        } else {
-            print("Accelerometer is not available")
-        }
-    }
-    
-    
-    struct AIModelResponse: Codable {
-        let userId: Int
-        let id: Int
-        let title: String
-        let completed: Bool
-        let value: Double
-    }
-    
-    @State private var apiResponse: AIModelResponse?
+    @State private var apiResponse = ApiResponseManager.shared.apiResponse
 
     let threshold: Double = 0.7 // Example threshold
    
        
-    func callAPI() {
-       guard let url = URL(string: "https://jsonplaceholder.typicode.com/todos/1") else {
-           print("Invalid URL")
-           return
-       }
-       
-       let task = URLSession.shared.dataTask(with: url) { data, response, error in
-           if let error = error {
-               print("Error: \(error)")
-               return
-           }
-           
-           guard let httpResponse = response as? HTTPURLResponse,
-                 (200...299).contains(httpResponse.statusCode) else {
-               print("Invalid response")
-               return
-           }
-           
-           if let data = data {
-               do {
-                   let apiResponse = try JSONDecoder().decode(AIModelResponse.self, from: data)
-                   print("API Response: \(apiResponse)")
-                   
-                   DispatchQueue.main.async {
-                            self.apiResponse = apiResponse // Update the state on the main thread
-                        }
-               } catch {
-                   print("Error decoding JSON: \(error)")
-               }
-           }
-       }
-       
-       task.resume()
-   }
-    let timer = Timer.publish(every: 5, on: .main, in: .common).autoconnect()
-    
     var body: some View {
         VStack {
             Text(config.read(query: "Study Title") ?? "CardinalKit")
@@ -170,7 +289,7 @@ struct TasksUIView: View {
         
             Text(date).font(.system(size: 18, weight: .regular)).padding()
             Button(action: {
-                startAccelerometerUpdates()
+                recorder.startRecording()
             }) {
                 Text("Start Accelerometer Updates")
                     .padding()
@@ -181,21 +300,21 @@ struct TasksUIView: View {
             .padding()
             
             HStack {
-                Image(systemName: (apiResponse?.value ?? 0) < threshold ? "checkmark.circle" : "exclamationmark.circle")
+                Image(systemName: (apiResponse?.intValue ?? 0) < Int(threshold) ? "checkmark.circle" : "exclamationmark.circle")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 50, height: 50)
-                    .foregroundColor((apiResponse?.value ?? 0) < threshold ? .green : .red)
+                    .foregroundColor((apiResponse?.intValue ?? 0) < Int(threshold) ? .green : .red)
                     .background(Circle()
                                     .foregroundColor(.white)
                                     .frame(width: 60, height: 60))
                 // Use string interpolation to create the status text
-                let statusText = (apiResponse?.value ?? 0) < threshold ? "Normal" : "Warning"
+                let statusText = (apiResponse?.intValue ?? 0) < Int(threshold) ? "Normal" : "Warning"
                 // Format the value as a string with two decimal places
-                let valueText = String(format: "%.2f", apiResponse?.value ?? 0)
+                let valueText = String(format: "%.2f", apiResponse?.intValue ?? 0)
                 // Combine status and value texts
                 Text("\(statusText) \(valueText)")
-                    .foregroundColor((apiResponse?.value ?? 0) < threshold ? .green : .black) // Use .black for value color
+                    .foregroundColor((apiResponse?.intValue ?? 0) < Int(threshold) ? .green : .black) // Use .black for value color
                     .font(.system(size: 30))
             }
             .padding()
@@ -226,7 +345,7 @@ struct TasksUIView: View {
                     }
                 }.listStyle(GroupedListStyle())
             }
-//            Text(apiResponse != nil ? "API Response: \(apiResponse!.completed.description)" : "No response yet")
+            Text(apiResponse != nil ? "API Response: \(apiResponse!.intValue.description)" : "No response yet")
         }
         .onAppear(perform: {
             self.useCloudSurveys = config.readBool(query: "Use Cloud Surveys") ?? false
@@ -235,11 +354,6 @@ struct TasksUIView: View {
             }
             
         })
-        .onReceive(timer) { _ in
-             print("Timer ticked!")
-                        // Call the function at each timer tick
-                self.callAPI()
-        }
         
     }
 }
