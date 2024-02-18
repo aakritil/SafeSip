@@ -42,7 +42,7 @@ struct OnboardingUIView: View {
             Text(config.read(query: "Study Title") ?? "CardinalKit")
                 .foregroundColor(self.color)
                 .multilineTextAlignment(.center)
-                .font(.system(size: 35, weight: .bold, design: .default))
+                .font(.system(size: 40, weight: .bold, design: .default))
                 .padding(.leading, Metrics.paddingHorizontalMain)
                 .padding(.trailing, Metrics.paddingHorizontalMain)
             
@@ -59,7 +59,7 @@ struct OnboardingUIView: View {
                 Button(action: {
                     self.showingOnboard.toggle()
                 }, label: {
-                     Text("Join Study")
+                     Text("I'm a New User")
                         .padding(Metrics.paddingButtonLabel)
                         .frame(maxWidth: .infinity)
                         .foregroundColor(.white)

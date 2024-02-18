@@ -179,7 +179,7 @@ struct TasksUIView: View {
             .padding()
             
             HStack {
-                Image(systemName: "exclamationmark.circle")
+                Image(systemName: apiResponse?.completed ?? false ? "exclamationmark.circle" : "checkmark.circle")
                     .resizable() // Allows the image to be resized
                     .aspectRatio(contentMode: .fit) // Maintains the aspect ratio of the image
                     .frame(width: 50, height: 50) // Sets the image size to 50x50 points
@@ -189,6 +189,7 @@ struct TasksUIView: View {
                         .frame(width: 60, height: 60)) // Makes the circle slightly larger than the icon
                 Text(apiResponse?.completed ?? false ? "Warning" : "Normal")
                     .foregroundColor(apiResponse?.completed ?? false ? .red : .green)
+                    .font(.system(size: 30))
             }
             .padding() // Adds some padding around the HStack contents
 

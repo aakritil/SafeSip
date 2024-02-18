@@ -97,8 +97,8 @@ struct SensorsDemoUIView: View {
             Image("SBDLogoGrey")
                 .resizable()
                 .scaledToFit()
-                .padding(.leading, Metrics.paddingHorizontalMain * 4)
-                .padding(.trailing, Metrics.paddingHorizontalMain * 4)
+                .padding(.leading, Metrics.paddingHorizontalMain * 1)
+                .padding(.trailing, Metrics.paddingHorizontalMain * 1)
                 .accessibilityLabel(Text("Biodesign Logo"))
             
             if useAppleWatch {

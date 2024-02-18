@@ -23,7 +23,7 @@
 	<key>Review Consent Step Text</key>
 	<string>Review Consent Form</string>
 	<key>Reason for Consent Text</key>
-	<string>Consent to join the Developer Health Research Study.</string>
+	<string>Consent to join the SafeSip community and the Alcohol-overdose prevention effort</string>
 	<key>Consent File Name</key>
 	<string>My Consent Form</string>
 	<key>Passcode Text</key>
@@ -33,7 +33,7 @@
 	<key>Completion Step Title</key>
 	<string>Welcome aboard.</string>
 	<key>Completion Step Text</key>
-	<string>This step concludes the onboarding and consent process of the CardinalKit framework. Next up, you will see main app functionality.</string>
+	<string>This step concludes the onboarding and consent process of the SafeSip App. Next up, you will see main app functionality.</string>
 	<key>Health Permissions Title</key>
 	<string>Permission to read Accelerometer Data</string>
 	<key>Health Permissions Text</key>
@@ -52,17 +52,17 @@
 	<key>Sign In With Email</key>
 	<false/>
 	<key>Withdrawal Instruction Title</key>
-	<string>Are you sure you want to withdraw?</string>
+	<string>Are you sure you want to withdraw from using the SafeSip app?</string>
 	<key>Withdrawal Instruction Text</key>
-	<string>Withdrawing from the study will reset the app to the state it was in prior to you originally joining the study.</string>
+	<string>Withdrawing from registration will reset the app to the state it was in prior to you originally downloaded the app.</string>
 	<key>Withdraw Title</key>
 	<string>We appreciate your time.</string>
 	<key>Withdraw Text</key>
-	<string>Thank you for your contribution to this study. We are sorry that you could not continue. The app will now close.</string>
+	<string>Thank you for downloading SafeSip. We are sorry that you decided not to continue using it. The app will now close.</string>
 	<key>Passcode On Return Text</key>
 	<string>Welcome back!</string>
 	<key>Consent Title</key>
-	<string>Research Study Consent Form</string>
+	<string>SafeSip User Consent Form</string>
 	<key>Use CareKit</key>
 	<true/>
 	<key>Consent Form</key>
@@ -72,9 +72,15 @@
 			<key>Title</key>
 			<string>Hi there! 👋🏽</string>
 			<key>Summary</key>
-			<string>CardinalKit is a suite of tools designed to help you build a digital health app experience from the ground up. It integrates with Firebase to provide full-stack solutions. We hope you enjoy the love poured into this sample and make many great things with it!</string>
+			<string>SafeSip is an innovative application crafted to enhance personal safety through digital health monitoring. Utilizing advanced sensor technologies, including accelerometers, SafeSip offers a dynamic approach to managing alcohol consumption.</string>
 			<key>Content</key>
-			<string>CardinalKit is a suite of tools designed to help you build a digital health app experience from the ground up. It integrates with Firebase to provide full-stack solutions. We hope you enjoy the love poured into this sample and make many great things with it!</string>
+			<string>SafeSip is an innovative application crafted to enhance personal safety through digital health monitoring. Utilizing advanced sensor technologies, including accelerometers, SafeSip offers a dynamic approach to managing alcohol consumption. By providing real-time feedback on intoxication levels, our app aims to prevent potential overindulgence and ensure a safer social experience. We are excited for you to explore SafeSip&apos;s capabilities and look forward to seeing the positive impact it will have on your well-being and social interactions.
+
+
+
+
+
+</string>
 		</dict>
 		<key>DataGathering</key>
 		<dict>
@@ -144,25 +150,25 @@
 	<array>
 		<dict>
 			<key>Title</key>
-			<string>First Title</string>
+			<string>Real-time Monitoring</string>
 			<key>Description</key>
-			<string>You can customize this section your own logo and text.</string>
+			<string></string>
 			<key>Logo</key>
 			<string>ActivityIcon</string>
 		</dict>
 		<dict>
 			<key>Title</key>
-			<string>Second Title</string>
+			<string>Comprehensive Inbody Alcohol Statistics</string>
 			<key>Description</key>
-			<string>You can customize this section your own logo and text.</string>
+			<string></string>
 			<key>Logo</key>
 			<string>DataIcon</string>
 		</dict>
 		<dict>
 			<key>Title</key>
-			<string>Third Title</string>
+			<string>Multi-modal Digital Sensors</string>
 			<key>Description</key>
-			<string>You can customize this section your own logo and text.</string>
+			<string></string>
 			<key>Logo</key>
 			<string>WatchIcon</string>
 		</dict>
@@ -171,7 +177,7 @@
 	<array>
 		<dict>
 			<key>givenName</key>
-			<string>Johnny</string>
+			<string>James</string>
 			<key>familyName</key>
 			<string>Appleseed</string>
 			<key>title</key>

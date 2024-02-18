@@ -70,7 +70,7 @@ struct OnboardingInfoView: View {
                 .frame(width: 100, height: 100)
                 .padding()
 
-            Text(title).font(.title)
+            Text(title).font(.title).multilineTextAlignment(.center)
 
             Text(description)
                 .font(.body)
