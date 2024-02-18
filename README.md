@@ -1,72 +1,47 @@
-> [!IMPORTANT]  
-> The CardinalKit iOS template application is in maintenance mode. All new projects should use [Stanford Spezi](https://github.com/StanfordSpezi), our modular and standards-based framework successor to CardinalKit. Check out the [Spezi Template Application]([https://github.com/StanfordSpezi](https://github.com/StanfordSpezi/SpeziTemplateApplication)) as a great way to get started.
+# SafeSip: Excessive alcohol consumption management with deep learning and motion sensors 
 
-![CardinalKit Logo](https://raw.githubusercontent.com/CardinalKit/.github/main/assets/ck-header-light.png#gh-light-mode-only)
-![CardinalKit Logo](https://raw.githubusercontent.com/CardinalKit/.github/main/assets/ck-header-dark.png#gh-dark-mode-only)
+Excessive alcohol consumption can have severe health consequences. SafeSip uses machine learning to warn users when their consumption has reached unsafe levels, with no need for user input. 
 
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END --> 
+## Inspiration
 
----
+As college students, we are witness to a lot of drinking. While fine in moderation, excessive alcohol consumption has serious consequences. We want to help our peers strike a good balance between fun and safety. That’s why we’ve created SafeSip, a low-commitment, easy-to-use tool to ensure safe drinking. 
 
-<img src="https://raw.githubusercontent.com/CardinalKit/.github/main/assets/CK_Map.jpg" alt="cardinalkit map">
+## What it does
 
-Includes:
-* Informed consent process using ResearchKit.
-* Track day-to-day adherence with CareKit.
-* Monitor health data with HealthKit.
-* Collect and upload EHR data.
-* CoreMotion data demo.
-* Awesome SwiftUI templates.
-* Zero-code [customizable configuration file.](https://cardinalkit.org/docs/ckconfig)
-* GCP Firebase Integration.
+By analyzing users’ gait from smartphone accelerometer data, SafeSip provides an accurate estimate of a user’s intoxication level and warns them to stop alcohol consumption before serious consequences begin. 
 
-CardinalKit runs on iOS 15.0 and up. [Xcode 14](https://developer.apple.com/xcode/) is required for development.
+Existing solutions require significant user input, such as manually entering every drink. Yet, as users drink more, they become increasingly careless, either forgetting or choosing not to track drinks, rendering these solutions ineffective. With SafeSip, users only have to press a button to indicate that they have started drinking, and our technology takes care of the rest. SafeSip extends existing research in the field, using machine learning methods to infer transdermal alcohol content (TAC) from accelerometer data. This is something entirely novel: while existing literature has suggested the possibility of doing so, SafeSip is the first working implementation. 
 
-## Build your App with CardinalKit
+By accurately estimating a user’s TAC, SafeSip is able to preempt and stop excessive alcohol consumption, preventing unfortunate consequences like blackouts. Further, SafeSip has in-app tools to track historical alcohol consumption and provide safe-drinking education. With SafeSip, users can ensure that they have a safe and enjoyable drinking experience. 
 
-This repository contains a fully functional example in the `CardinalKit-Example` directory that you can use as a starting point for building your own app. To get started, clone this repository and follow our simple [setup instructions](https://cardinalkit.org/cardinalkit-docs/1-cardinalkit-app/1-start.html).
+## How we built it
 
-Feel free to join our Slack community or attend one of our workshops or buildathons for help customizing your app! Learn more at https://cardinalkit.org.
+SafeSip is built with an array of different technologies. The native iOS app itself is built in Swift, collecting and streaming movement data using Apple’s Core Motion framework. Our app is connected to the Firebase backend, which handles authentication and storage. A neural network built with PyTorch and hosted on Google Cloud Compute performs the TAC prediction. 
 
-## Contribute to CardinalKit
+## Challenges we ran into
 
-Head on over to https://cardinalkit.org/ to get onboarded to our open source community ⚡️ 
+Data Wrangling: The dataset we used to train our model was quite unruly. Values were in different formats, timestamps didn’t match up, and data was everywhere. Wrangling and getting everything into a usable format took considerable thought and troubleshooting. 
 
-## Contributors ✨
+New to iOS: This was our first time ever building an iOS app. We’re proud to have gone from knowing nothing about Swift to having a working App in 36 hours. 
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+## Accomplishments that we're proud of
 
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tr>
-    <td align="center"><a href="http://gutierrezsantiago.com"><img src="https://avatars2.githubusercontent.com/u/5482213?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Santiago Gutierrez</b></sub></a><br /><a href="https://github.com/CardinalKit/CardinalKit/commits?author=ssgutierrez42" title="Code">💻</a></td>
-    <td align="center"><a href="http://varunshenoy.com"><img src="https://avatars3.githubusercontent.com/u/10859091?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Varun Shenoy</b></sub></a><br /><a href="https://github.com/CardinalKit/CardinalKit/commits?author=varunshenoy" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/mhittle"><img src="https://avatars1.githubusercontent.com/u/1742619?v=4?s=100" width="100px;" alt=""/><br /><sub><b>mhittle</b></sub></a><br /><a href="#ideas-mhittle" title="Ideas, Planning, & Feedback">🤔</a> <a href="#maintenance-mhittle" title="Maintenance">🚧</a> <a href="#projectManagement-mhittle" title="Project Management">📆</a></td>
-    <td align="center"><a href="https://github.com/aamirrasheed"><img src="https://avatars3.githubusercontent.com/u/7892721?v=4?s=100" width="100px;" alt=""/><br /><sub><b>aamirrasheed</b></sub></a><br /><a href="#content-aamirrasheed" title="Content">🖋</a> <a href="#video-aamirrasheed" title="Videos">📹</a></td>
-    <td align="center"><a href="http://apollozhu.github.io/en"><img src="https://avatars1.githubusercontent.com/u/10842684?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Zhiyu Zhu/朱智语</b></sub></a><br /><a href="https://github.com/CardinalKit/CardinalKit/commits?author=ApolloZhu" title="Code">💻</a></td>
-    <td align="center"><a href="http://vishnu.io"><img src="https://avatars.githubusercontent.com/u/1212163?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Vishnu Ravi</b></sub></a><br /><a href="https://github.com/CardinalKit/CardinalKit/commits?author=vishnuravi" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/griffinac"><img src="https://avatars0.githubusercontent.com/u/14243141?s=460&u=203a5408c41deaae65c2416b3043e777bdf9de0e&v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ashley Griffin</b></sub></a><br /><a href="#ideas-griffinac" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/CardinalKit/CardinalKit/commits?author=griffinac" title="Code">💻</a></td>
-  </tr>
-  <tr>
-    <td align="center"><a href="http://ase.in.tum.de/schmiedmayer"><img src="https://avatars.githubusercontent.com/u/28656495?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Paul Schmiedmayer</b></sub></a><br /><a href="https://github.com/CardinalKit/CardinalKit/commits?author=PSchmiedmayer" title="Code">💻</a></td>
-  </tr>
-</table>
+For three of our four members, this was our first-ever hackathon! We’re proud to have made it through. 
 
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
+Making something new! SafeSip is something novel. No one has ever done what we’ve done with deploying real-time TAC-level prediction models leveraging ML and accelerometer data. We’re excited to contribute to the literature on this problem. 
 
-<!-- ALL-CONTRIBUTORS-LIST:END -->
+Learning new tech: This was our first time working with Swift, and front-end technologies in native iOS. We’re very happy with how much we learned, and how the end product looks. 
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+## What we learned
 
-## License
+Swift: We’re new to Swift, and we had a lot of fun learning this new tech. 
 
-CardinalKit is available under the MIT license. See the LICENSE file for more info.
+Hackathons: We learned how to navigate and manage hackathons. 
 
+## What's next for SafeSip
 
-![Stanford Byers Center for Biodesign Logo](https://raw.githubusercontent.com/CardinalKit/.github/main/assets/ck-footer-light.png#gh-light-mode-only)
-![Stanford Byers Center for Biodesign Logo](https://raw.githubusercontent.com/CardinalKit/.github/main/assets/ck-footer-dark.png#gh-dark-mode-only)
+More Features: We think there’s a lot more room for new features in SafeSip. A few ideas we had were pass-out detection, which would call an emergency contact once you passed out, or alcoholism alerts, which would alert you if you were drinking too frequently or heavily. We’re excited by our technology, and think there’s a lot of room for us to make drinking safer. 
+
+Apple Watch Integration: By integrating with an Apple Watch, we could pull more biometric data, allowing us to better estimate TAC, and make more accurate black-out predictions. 
+
+Broader Integration with Different Wearable Devices: We plan to generalize to other brands of wearable devices leveraging platforms like TerraAPI so that we can provide our services to a broader range of users. 
