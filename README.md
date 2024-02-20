@@ -2,7 +2,7 @@
 
 Excessive alcohol consumption can have severe health consequences. SafeSip uses machine learning to warn users when their consumption has reached unsafe levels, with no need for user input. 
 
-<img src="https://github.com/aakritil/treehacks/assets/63487762/f23c82db-b458-42cc-bde5-f556f5964147" width="550" height="400" alt="Landing Pages">
+<img src="https://github.com/aakritil/treehacks/assets/63487762/f23c82db-b458-42cc-bde5-f556f5964147" width="500" height="400" alt="Landing Pages">
 
 <img src="https://github.com/aakritil/treehacks/assets/63487762/5124b4cd-dc71-4f23-ab91-13d03d87a7cb" width="180" height="400" alt="Main Page">
 
